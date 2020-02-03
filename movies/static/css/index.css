@@ -1,0 +1,94 @@
+.header{
+  width: 100%;
+  text-align: center;
+  background-color: white;
+}
+.header__upper{
+  background-color: gray;
+  font-size: 12px;
+  height: 20px;
+}
+.header__upper__text{
+  position: absolute;
+  right: 10px;
+}
+.header__center{
+  height: 70px;
+  display: flex;
+  position: relative;
+  background-color: lightskyblue;
+}
+.header__center__text{
+  font-size: 25px;
+  color: black;
+  position: absolute;
+  left: 10px;
+  top: 16px;
+}
+.search{
+  height: 30px;
+  width: 300px;
+  border: solid 1px;
+  position: absolute;
+  right: 20px;
+  top: 28px;
+}
+.btn{
+  width: 70px;
+  height: 30px;
+  margin-left: 20px;
+  display: block;
+  border: solid 1px;
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+  top: 28px;
+}
+.rand{
+  margin: 20px auto;
+  width: 560px;
+}
+.recommend{
+  font-size: 50px;
+  color: gold;
+}
+.recommend-title{
+  font-size: 30px;
+}
+.main{
+  width: 1200px;
+  margin: 20px auto;
+}
+.main-text{
+  font-size: 50px;
+  color: navy;
+}
+.wrap{
+  display:flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+.sub{
+  display: contents;
+  font-size: 35px;
+}
+.movie{
+  width: 142px;
+  height: 275px;
+  display: inline-grid;
+  margin: 10px 28px;
+}
+.image{
+  width: 142px;
+  height: 200px;
+}
+.view-all{
+  margin-left: 1020px;
+  color: steelblue;
+  font-size: 24px;
+}
+.view-all2{
+  margin-left: 950px;
+  color: steelblue;
+  font-size: 24px;
+}

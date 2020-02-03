@@ -1,0 +1,105 @@
+.wrap{
+  width: 900px;
+  margin: 20px auto;
+}
+.flex{
+  display: flex;
+  margin-bottom: 10px;
+  position: relative;
+}
+.left-content{
+  width: 450px;
+}
+.right-content{
+  width: 450px;
+}
+.rank{
+  text-align: center;
+  font-weight: bold;
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+.image{
+  width: 350px;
+  height: 500px;
+}
+.title{
+  font-size: 35px;
+  margin: 20px 0;
+}
+.date{
+  font-weight: bold;
+  margin-right: 20px;
+}
+.time{
+  font-weight: bold;
+}
+.genre{
+  display: flex;
+  font-weight: bold;
+  margin-bottom:30px;
+}
+.genre-name{
+  margin-left: 10px;
+  border: 1px solid silver;
+  border-radius: 13px;
+  background: silver;
+  padding: 0 5px;
+  font-size: 10px;
+  line-height: 22px;
+}
+.my-rate{
+  display: flex;
+  margin-bottom: 20px;
+}
+.my-rate-left{
+  font-weight: bold;
+  margin-right: 10px;
+  color: gold;
+  font-size: 40px;
+}
+.rate{
+  line-height: 65px;
+  margin-left: 30px;
+  font-size: 28px;
+}
+.content{
+  position: absolute;
+  height: 205px;
+  overflow: scroll;
+}
+.content-left{
+  font-weight: bold;
+}
+.form{
+  position: relative;
+  margin: 0 175px;
+  width: 900px;
+}
+#id_tags{
+  position: absolute;
+  right: 365px;
+  top: 1px;
+  height: 120px;
+  overflow: scroll;
+}
+#id_check{
+  margin-left: 5px;
+  height: 16px;
+}
+.evaluate{
+  display: contents;
+}
+.button{
+  position: absolute;
+  right: 300px;
+  padding: 5px 10px;
+  background-color: gold;
+  color: black;
+}
+.toppage{
+  position: absolute;
+  margin-left: 750px;
+  color: navy;
+  margin-top: 110px;
+}

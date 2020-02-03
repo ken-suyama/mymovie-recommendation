@@ -1,0 +1,48 @@
+{% load static %}
+<html>
+<head>
+<meta charset="UTF-8">
+<title>My Ranking</title>
+<link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+</head>
+<body>
+<div class="header">
+  <div class="header__upper">
+    <div class="header__upper__text">
+      現在の掲載件数: {{ movies_list|length }}
+    </div>
+  </div>
+  <div class="header__center">
+    <a href="{% url 'index' %}" class="header__center__text">
+      MOVIE RECOMMENDER
+    </a>
+    <form action="" method="GET">
+        <input name="q" value="{{ request.GET.q }}" type="text" class="search">
+        <button type="submit" class="btn">検索する</button>
+    </form>
+  </div>
+
+{% if movies_list %}
+<div class="main">
+  <div style="font-size: 50px; color: navy;">  個人ランキング<div class="sub"> <一覧> </div> </div>
+  {% if query %}
+  <h2>{{ query.title }} の検索結果</h2>
+  {% endif %}
+<ul class="wrap">
+{% for movie in movies_list %}
+<a href="{% url 'show' movie_id=movie.id %}">
+<li class="movie">
+<b style="width: 150px; color: navy;">{{ movie.score }}点: {{ movie.title }}
+</b>
+<img src={{ movie.image }} style="width: 142px;height:200px;">
+</li>
+</a>
+{% endfor %}
+</ul>
+</div>
+{% else %}
+<p>No movies.</p>
+{% endif %}
+</body>
+</html>

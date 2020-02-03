@@ -1,0 +1,71 @@
+{% load static %}
+<html>
+<head>
+<meta charset="UTF-8">
+<title>詳細ページ</title>
+<link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/show.css' %}">
+</head>
+<body>
+  <div class="wrap">
+    <div class="rank">
+      第{{ movie.rank }}位
+    </div>
+    <div class="flex">
+      <div class="left-content">
+        <img src={{ movie.image }} class="image">
+      </div>
+      <div class="right-content">
+        <div class="title">
+          {{ movie.title }}
+        </div>
+        <div class="flex">
+          <div class="date">
+            {{ movie.date }}
+          </div>
+          <div class="time">
+            {{ movie.time }}
+          </div>
+        </div>
+        <div class="genre"> ジャンル: 
+          {% for tag in tags %}
+            <div class="genre-name"> {{tag.name}} </div>
+          {% endfor %}
+        </div>
+
+        <div class="my-rate">
+          <div class="my-rate-left">
+            My Rate
+          </div>
+        {% if 101 > movie.score and movie.score > -1 and movie.score != 0 %}
+        <div class="rate">
+          {{ movie.score }}点
+        </div>
+        {% elif movie.score == 0%}
+        <div class="rate">
+          まだ評価はされていません。
+        </div>
+        {% else %}
+        <div>
+          保存に失敗しました(0以上100以下の数字を入力して下さい)
+        </div>
+        {% endif %}
+      </div>
+        <div class="content">
+          <div class="content-left">
+            あらすじ
+          </div>
+          {{ movie.content }}
+        </div>
+      </div>
+    </div>
+    <form action="" method="POST" class="form">
+      {% csrf_token %}
+      {{ form }}
+      <p class="evaluate"><button type="submit" class="button">評価する</button></p>
+    </form>
+    <a href="{% url 'index' %}" class="toppage">トップページに戻る</a>
+  </div>
+
+</body>
+</html>

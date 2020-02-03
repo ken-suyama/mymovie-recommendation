@@ -1,0 +1,91 @@
+{% load static %}
+<html>
+<head>
+<meta charset="UTF-8">
+<title>映画リスト</title>
+<link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+</head>
+<body>
+<div class="header">
+  <div class="header__upper">
+    <div class="header__upper__text">
+      {% if query %}
+      ヒット件数: {{ movies|length }}
+      {% else %}
+      現在の掲載件数: {{ movies|length }}
+      {% endif %}
+    </div>
+  </div>
+  <div class="header__center">
+    <a href="{% url 'index' %}" class="header__center__text">
+      MOVIE RECOMMENDER
+    </a>
+    <form action="" method="GET">
+        <input name="q" value="{{ request.GET.q }}" type="text" class="search">
+        <button type="submit" class="btn">検索する</button>
+    </form>
+  </div>
+{% if query %}
+  <h2>{{ query.title }} の検索結果</h2>
+
+  {% if movies %}
+    {% for movie in movies %}
+    <a href="{% url 'show' movie_id=movie.id %}">
+        <li class="movie">
+        <b style="width: 150px; color: navy;">{{ movie.title }}
+        </b>
+        <img src={{ movie.image }} style="width: 142px;height:200px;">
+        </li>
+        </a>
+    {% endfor%}
+  {% else %}
+    <div>映画が見つかりませんでした</div>
+  {% endif %}
+{% else %}
+<div class="recommend" >★★今日のオススメ★★</div>
+  <div class="rand"> 
+    <div class="recommend-title">{{recommend.title}}</div>
+    <img src={{ recommend.image }} style="width: 300px;height:400px;">
+  </div> 
+  {% if movies_list %}
+  <div class="main">
+    <div class="main-text">  全体ランキング </div>
+  <ul class="wrap">
+  {% for movie in movies_list %}
+  <a href="{% url 'show' movie_id=movie.id %}">
+  <li class="movie">
+  <b style="width: 150px; color: navy;">{{ movie.rank }}位: {{ movie.title }}
+  </b>
+  <img src={{ movie.image }} style="width: 142px;height:200px;">
+  </li>
+  </a>
+  {% endfor %}
+  </ul>
+  <a href="{% url 'all' %}" class="view-all">全作品 >></a>
+  </div>
+  {% endif %}
+
+  {% if movies_list2 %}
+    <div class="main">
+      <div class="main-text"> 個人ランキング </div>
+      <ul class="wrap">
+      {% for movie2 in movies_list2 %}
+        <a href="{% url 'show' movie_id=movie2.id %}">
+          <li class="movie">
+            <b style="width: 150px; color: navy;">{{ movie2.score }}点: {{ movie2.title }}
+            </b>
+            <img src={{ movie2.image }} style="width: 142px;height:200px;">
+          </li>
+        </a>
+      {% endfor %}
+      </ul>
+        <a href="{% url 'myrank' %}" class="view-all2">閲覧済の映画 >></a>
+    </div>
+  {% endif %}
+{% endif %}
+
+
+
+</body>
+</html>
