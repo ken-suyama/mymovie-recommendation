@@ -65,7 +65,7 @@
 }
 .content{
   position: absolute;
-  height: 205px;
+  height: 160px;
   overflow: scroll;
 }
 .content-left{
