@@ -46,7 +46,9 @@
 <div class="recommend" >★★今日のオススメ★★</div>
   <div class="rand"> 
     <div class="recommend-title">{{recommend.title}}</div>
+    <a href="{% url 'show' movie_id=recommend.id %}">
     <img src={{ recommend.image }} style="width: 300px;height:400px;">
+    </a>
   </div> 
   {% if movies_list %}
   <div class="main">
