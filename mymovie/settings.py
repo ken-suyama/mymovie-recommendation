@@ -73,7 +73,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'mymovie-recommendation.wsgi.application'
+WSGI_APPLICATION = 'mymovie.wsgi.application'
 
 
 # Database
