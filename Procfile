@@ -1,1 +1,1 @@
-web: gunicorn mymovie-recommendation.wsgi --log-file -
+web: gunicorn mymovie-recommendation.wsgi:application -b 0.0.0.0:$PORT
