@@ -28,7 +28,7 @@ SECRET_KEY = '0!udo-(rph5u-d!scxu#28(2cnwbr#cizyb+hy62!+7q&z+$ys'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
+ALLOWED_HOSTS = ['localhost', '.herokuapp.com']
 
 
 # Application definition
@@ -129,7 +129,7 @@ STATICFILES_DIRS = (
     [os.path.join(ROOT_PATH, 'static')]
 )
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
